@@ -10,8 +10,9 @@ public class Main {
         List list = new List();
         list.customerSort(customers);
         for (Customer customer : customers) {
+            list.addCustomer(customer);
             System.out.println("Customer list= " + customer.toString());
-
         }
+        list.showCustomers( list.getByFilter(1, 123457));
     }
 }
