@@ -1,4 +1,4 @@
-package lyubin.task1.task2Page87;
+package lyubin.task1.task2Page87.bean;
 
 public class Customer {
     private int id;
@@ -74,7 +74,6 @@ public class Customer {
     public void setNumberBankAccount(String numberBankAccount) {
         this.numberBankAccount = numberBankAccount;
     }
-
 
     @Override
     public String toString() {

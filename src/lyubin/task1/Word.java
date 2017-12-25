@@ -1,14 +1,13 @@
-package task1;
+package lyubin.task1;
 
-class Word {
-    private String text = null;
-
+public class Word {
+    private String text;
 
     Word(String text) {
         this.text = text;
     }
 
-    String getText() {
+    public String getText() {
         return text;
     }
 
@@ -20,7 +19,9 @@ class Word {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Word word = (Word) o;
+
         return text != null ? text.equals(word.text) : word.text == null;
     }
 
@@ -29,7 +30,6 @@ class Word {
         return text != null ? text.hashCode() : 0;
     }
 
-
     @Override
     public String toString() {
         return "Word{" +
@@ -37,4 +37,3 @@ class Word {
                 '}';
     }
 }
-
