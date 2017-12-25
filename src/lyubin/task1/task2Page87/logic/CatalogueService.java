@@ -4,11 +4,11 @@ import lyubin.task1.task2Page87.bean.Catalogue;
 import lyubin.task1.task2Page87.bean.Customer;
 
 public class CatalogueService {
-    public Customer[] getByFilter(Catalogue catalogue,Integer lowwerId, Integer upperId) {
-        return getCustomeresById(catalogue,lowwerId, upperId);
+    public static Customer[] getByFilter(Catalogue catalogue, Integer lowwerId, Integer upperId) {
+        return getCustomeresById(catalogue, lowwerId, upperId);
     }
 
-    private Customer[] getCustomeresById(Catalogue catalogue,Integer lowwerId, Integer upperId) {
+    private static Customer[] getCustomeresById(Catalogue catalogue, Integer lowwerId, Integer upperId) {
         int count = 0;
         for (Customer c : catalogue.getCustomerslist()) {
             if (c != null && isGood(lowwerId, upperId, c)) {
@@ -19,8 +19,8 @@ public class CatalogueService {
             Customer[] customerOut = new Customer[count];
             count = 0;
             for (int i = 0; i < catalogue.getCustomerslist().length - 1; i++) {
-                if (catalogue.getCustomerslist()customerslist[i] != null && isGood(lowwerId, upperId, customerslist[i])) { //разобраться
-                    customerOut[count] = customerslist[i];
+                if (catalogue.getCustomerslist()[i] != null && isGood(lowwerId, upperId, catalogue.getCustomerslist()[i])) { //разобраться
+                    customerOut[count] = catalogue.getCustomerslist()[i];
                     count++;
                 }
             }
@@ -28,21 +28,16 @@ public class CatalogueService {
         }
         return null;
     }
-    private boolean isGood(Integer lowwerId, Integer upperId, Customer in) {
-        if ((lowwerId != null && in.getCreditNumberCard() > lowwerId) && upperId != null && in.getCreditNumberCard() < upperId) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public void showCustomers(Catalogue catalogue){
-        for(Customer c : customerslist){
-            System.out.println(c.toString());
-        }
+
+    private static boolean isGood(Integer lowwerId, Integer upperId, Customer in) {
+        return (lowwerId != null && in.getCreditNumberCard() > lowwerId) &&
+                upperId != null &&
+                in.getCreditNumberCard() < upperId;
     }
 
-    public void showCustomers(Customer[] in){
-        for(Customer c : in){
+
+    public static void showCustomers(Customer[] in) {
+        for (Customer c : in) {
             System.out.println(c.toString());
         }
     }

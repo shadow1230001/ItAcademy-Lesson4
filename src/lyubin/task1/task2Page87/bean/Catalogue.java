@@ -26,7 +26,12 @@ public class Catalogue {
     }
 
     public void addCustomer(Customer n) {
-        customerslist[count++] = n;
+        count++;
+        Customer[] customerArray = new Customer[count + 1];
+        for (int i = 1; i < customerslist.length && i <= count; i++) {
+            customerArray[i] = customerslist[i];
+        }
+        customerArray[count] = n;
     }
 
 
